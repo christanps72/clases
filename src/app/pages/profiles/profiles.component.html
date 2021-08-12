@@ -1,0 +1,67 @@
+
+<mat-card style="width: 200px;">
+    <mat-card-title>Session 2 Angular</mat-card-title>
+<mat-card-subtitle>SIGN IN </mat-card-subtitle>
+
+<label >Name: {{nameExample}}</label>
+<input [(ngModel)]="nameExample" /><br><br>
+<label>Last Name:{{lastNameExample}}</label>
+<input [(ngModel)]="lastNameExample"/><br><br>
+<label>genero: {{generoExample}}</label>
+<input [(ngModel)]="generoExample" placeholder="Ingrese su genero" /><br><br>
+<label>age: {{ageExample}}</label>
+<input [(ngModel)]="ageExample" /><br><br>
+
+</mat-card>
+<fieldset>
+<div>texto original{{currentClassesArray|json}}</div>
+<div [ngClass]="currentClassString">texto cambia de tamaño </div>
+<div [ngClass]="currentClasses">Texto objeto </div>
+<div [ngClass]="currentClassesArray">Texto Array</div>
+</fieldset>
+
+<br>
+<fieldset>
+<h3>Dinamico</h3>
+<div [style.font-size]="idespecial ? '40px':'50px'">holaxd</div>
+
+<div [ngStyle]="specialStyle" >El texto va a cambiar </div>
+
+<button (click)="setChangeStyle()" [ngClass]="currentClassString">change style</button>
+
+<button (click)="setSpecialStyle()" [ngClass]="currentClassesArray">change style objeto</button>
+</fieldset>
+<br>
+<fieldset>
+<h3 *ngIf="idActivate ; else otro"> NG IF muestra el mesaje </h3><br>
+<ng-template #otro>Es un else </ng-template>
+<button (click)="setactivate()" [ngClass]="currentClassesArray">Condicion if</button>
+
+</fieldset>
+
+<hr>
+
+  <div> {{isNull}} </div>
+ <div *ngIf="isNull">
+    SE MUESTRA EL VALOR:{{isNull}}
+    
+</div>
+<h3>*ngfor</h3>
+<button (click)="setValue()">Valor nulo</button>
+
+<div *ngFor="let name of names"> {{name.n|uppercase}} </div>
+
+
+<h2><div [ngSwitch]="ageExample">
+    <div *ngSwitchCase="'suma'">{{operacion}}</div>
+    <div *ngSwitchCase="'resta'">{{operacion}}</div>
+    <div *ngSwitchCase="'multiplicacion'">{{operacion}}</div>
+    <div *ngSwitchCase="'dividir'">{{operacion}}</div>
+  
+    <div *ngSwitchDefault>NO eligio operacion </div>
+</div></h2>
+         
+   
+
+
+
